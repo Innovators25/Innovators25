@@ -14,7 +14,7 @@
   # CSS
   # Wordpress
 # Screenshots :
-# "C:\Users\rahul\OneDrive\Documents\screenshot1.png"  
+# 
 This is the first page of our website created using wordpress application.
 # ![screenshot2](https://github.com/user-attachments/assets/0536534c-4507-4686-9f0c-bb4fc7d4b2f4)
 
