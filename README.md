@@ -16,10 +16,13 @@
 # Screenshots :
 # 
 This is the first page of our website created using wordpress application.
-# ![screenshot2](https://github.com/user-attachments/assets/0536534c-4507-4686-9f0c-bb4fc7d4b2f4)
+# ![screenshot1](https://github.com/user-attachments/assets/f52f6274-ba9f-41d2-a62a-c22261826078)
 
 This is the sign in page of our e-commerce website.
-#
-This is the suggestion form of our website.
+# ![screenshot2](https://github.com/user-attachments/assets/0536534c-4507-4686-9f0c-bb4fc7d4b2f4)
+
+This is the suggestion form of our website. 
+# ![Screenshot3](https://github.com/user-attachments/assets/1dda18a1-4668-4eb1-849c-8bb1b8209dff)
+
 
   
