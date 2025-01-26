@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plan Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(bca4.jpg);
+      line-height: 1.6;
+      margin: 20px;
+      max-width: 800px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #28a745;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #result {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    #result h3 {
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diet Plan Generator</h1>
+  <p>Fill out the form below to create a personalized diet plan:</p>
+
+  <!-- Form to collect user requirements -->
+  <form id="dietForm">
+    <label for="calories">Enter Your Daily Calorie Requirement (kcal):</label>
+    <input type="number" id="calories" placeholder="e.g., 2000" required>
+
+    <label for="meals">Number of Meals Per Day:</label>
+    <input type="number" id="meals" placeholder="e.g., 3" required>
+
+    <label for="preference">Select Your Dietary Preference:</label>
+    <select id="preference" required>
+      <option value="">-- Select Preference --</option>
+      <option value="Vegetarian">Vegetarian</option>
+      <option value="Vegan">Vegan</option>
+      <option value="Keto">Keto</option>
+      <option value="Balanced">Balanced</option>
+    </select>
+
+    <button type="button" id="generateButton">Generate Diet Plan</button>
+  </form>
+
+  <!-- Result section -->
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("generateButton").addEventListener("click", function () {
+      // Get user inputs
+      const calories = parseInt(document.getElementById("calories").value, 10);
+      const meals = parseInt(document.getElementById("meals").value, 10);
+      const preference = document.getElementById("preference").value;
+      const resultDiv = document.getElementById("result");
+
+      // Validate inputs
+      if (isNaN(calories) || isNaN(meals) || !preference) {
+        resultDiv.innerHTML = "<p style='color: red;'>Please fill out all fields correctly!</p>";
+        return;
+      }
+
+      if (calories <= 0 || meals <= 0) {
+        resultDiv.innerHTML = "<p style='color: red;'>Calories and meals must be greater than zero!</p>";
+        return;
+      }
+
+      // Calculate calories per meal
+      const caloriesPerMeal = (calories / meals).toFixed(2);
+
+      // Meal options
+      const mealOptions = {
+        Vegetarian: "Lentils, Brown Rice, Mixed Greens",
+        Vegan: "Tofu, Sweet Potatoes, Broccoli",
+        Keto: "Grilled Chicken, Avocado, Spinach",
+        Balanced: "Grilled Fish, Whole Wheat Bread, Roasted Vegetables",
+      };
+
+      // Generate meal plan
+      let mealPlan = `<h3>Your Dietary Plan:</h3>`;
+      mealPlan += `<p><strong>Total Calories:</strong> ${calories} kcal</p>`;
+      mealPlan += `<p><strong>Meals per Day:</strong> ${meals}</p>`;
+      mealPlan += `<p><strong>Preference:</strong> ${preference}</p>`;
+      mealPlan += `<h4>Meal Breakdown:</h4>`;
+
+      for (let i = 1; i <= meals; i++) {
+        mealPlan += `<p><strong>Meal ${i}:</strong> ${mealOptions[preference]} (${caloriesPerMeal} kcal)</p>`;
+      }
+
+      // Display the result
+      resultDiv.innerHTML = mealPlan;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to Make Today?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #suggestion {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>What to Make Today?</h1>
+    <p>Select your current mood to get a diet-friendly suggestion:</p>
+    <button onclick="suggestMeal('light')">Feeling Light</button>
+    <button onclick="suggestMeal('energetic')">Feeling Energetic</button>
+    <button onclick="suggestMeal('lazy')">Feeling Lazy</button>
+    <button onclick="suggestMeal('adventurous')">Feeling Adventurous</button>
+    <div id="suggestion"></div>
+
+    <script>
+        function suggestMeal(mood) {
+            const suggestion = document.getElementById("suggestion");
+            let mealSuggestion = "";
+
+            if (mood === "light") {
+                mealSuggestion = "How about a fresh garden salad with avocado and a light vinaigrette?";
+            } else if (mood === "energetic") {
+                mealSuggestion = "Try a protein-packed smoothie with spinach, banana, and peanut butter!";
+            } else if (mood === "lazy") {
+                mealSuggestion = "A simple bowl of overnight oats topped with berries would be perfect.";
+            } else if (mood === "adventurous") {
+                mealSuggestion = "Experiment with a quinoa bowl with roasted veggies and tahini dressing!";
+            }
+
+            suggestion.textContent = mealSuggestion;
+        }
+    </script>
+</body>
+</html>
